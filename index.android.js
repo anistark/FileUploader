@@ -9,28 +9,6 @@ import {
     TouchableNativeFeedback
 } from 'react-native';
 
-//export default class FileUploader extends Component {
-//    render() {
-//        return (
-//            <View style={styles.container}>
-//                <Text style={styles.title}>
-//                    File Uploader
-//                </Text>
-//                <Text style={styles.subTitle}>
-//                    Upload Files Fast and Ease
-//                </Text>
-//                <Text style={styles.body}>
-//                    Kumar Anirudha{'\n'}
-//                    anistark anirudha.org
-//                </Text>
-//            </View>
-//        );
-//    }
-//}
-//
-//
-//AppRegistry.registerComponent('FileUploader', () => FileUploader);
-
 class FileUploader extends Component {
     constructor(props) {
         super(props);
