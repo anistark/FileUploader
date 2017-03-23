@@ -1,34 +1,28 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View
 } from 'react-native';
 
 export default class FileUploader extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          File Uploader
-        </Text>
-        <Text style={styles.instructions}>
-          anistark
-        </Text>
-        <Text style={styles.instructions}>
-          Under Development,{'\n'}
-          Contributions Welcome
-        </Text>
-      </View>
-    );
-  }
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text style={styles.title}>
+                    File Uploader
+                </Text>
+                <Text style={styles.subTitle}>
+                    Upload Files Fast and Ease
+                </Text>
+                <Text style={styles.body}>
+                    Kumar Anirudha{'\n'}
+                    anistark anirudha.org
+                </Text>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -38,14 +32,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#AFECCA'
   },
-  welcome: {
-    fontSize: 20,
+  title: {
+    fontSize: 40,
     textAlign: 'center',
+    color: '#95ABB9',
     margin: 10
   },
-  instructions: {
+  subTitle: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#95ABB9',
+    marginBottom: 5
+  },
+  body: {
+    textAlign: 'center',
+    color: '#47AFF1',
     marginBottom: 5
   }
 });
