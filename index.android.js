@@ -31,8 +31,8 @@ class FileUploader extends Component {
                 <TouchableNativeFeedback
                     onPress={this._onPressButton}
                     background={TouchableNativeFeedback.SelectableBackground()}>
-                    <View style={{width: 100, height: 100, backgroundColor: '#47AFF1'}}>
-                        <Text style={{margin: 30}}>Button</Text>
+                    <View style={styles.buttonRoundStyle}>
+                        <Text style={styles.buttonTextStyle}>Upload</Text>
                     </View>
                 </TouchableNativeFeedback>
             </View>
@@ -58,13 +58,18 @@ const styles = StyleSheet.create({
         color: '#95ABB9',
         marginBottom: 5
     },
-    body: {
-        textAlign: 'center',
-        color: '#47AFF1',
-        marginBottom: 5
+    buttonRoundStyle: {
+        width: 200,
+        height: 200,
+        backgroundColor: '#47AFF1',
+        borderRadius: 100,
+        borderWidth: 5,
+        borderColor: '#d6d7da'
     },
-    fileUploadButton: {
-        backgroundColor: '#26C1C1'
+    buttonTextStyle: {
+        textAlign: 'center',
+        fontSize: 20,
+        marginTop: 75
     }
 });
 
