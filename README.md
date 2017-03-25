@@ -7,22 +7,13 @@ React Native App
 ## Under Development
 
 
-## App Directory Structure
+## Directory Structure
 
-    App
-    ├── Components
-    │   └── Styles
-    ├── Config
-    ├── Containers
-    │   └── Styles
-    ├── Fixtures
-    ├── Images
-    ├── Lib
-    ├── Navigation
-    │   └── Styles
-    ├── Redux
-    ├── Sagas
-    ├── Services
-    ├── Themes
-    └── Transforms
+ /public: stores images, audios and other assets
+ /App: JavaScript source files
+   constants.js: I put all constant variables into this file
+   /components: React-native components, such buttons, lists
+   /scenes
+   /styles: shared style files, text, colors, etc.
+   /utils: reusable functions
 
