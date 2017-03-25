@@ -7,10 +7,12 @@ import {
     AppRegistry,
     View,
     Text,
-    TouchableNativeFeedback
+    TouchableNativeFeedback,
+    ToastAndroid
 } from 'react-native';
 
 var styles = require('../styles/home');
+var services = require('../utils/services');
 
 class HomeScreen extends Component {
     constructor(props) {
@@ -19,7 +21,14 @@ class HomeScreen extends Component {
     }
 
     _onPressButton() {
-        console.log("You tapped the button!");
+        services.uploadFile(function(res, err){
+            if (err) {
+                ToastAndroid.show(String(err), ToastAndroid.LONG);
+            }
+            else if (res) {
+                ToastAndroid.showWithGravity(String(res.message), ToastAndroid.SHORT, ToastAndroid.CENTER);
+            }
+        });
     }
 
     render() {
