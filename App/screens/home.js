@@ -23,16 +23,14 @@ class HomeScreen extends Component {
     }
 
     _onPressButton() {
-        console.log('in Button Pressed');
         var options = {};
         FilePickerManager.showFilePicker(options,(response) => {
-            console.log('Response', response);
-
             if (response.didCancel) {
-                console.log('User cancelled file picker');
+                ToastAndroid.showWithGravity('Dont be shy! Go on! Upload Something!', ToastAndroid.SHORT, ToastAndroid.CENTER);
             }
             else if (response.error) {
-                console.log('FilePickerManager Error: ', response.error);
+                console.log(response.error);
+                ToastAndroid.showWithGravity('Looks like we are broken at the moment. Hang in there while we get it fixed in a jiffy!!', ToastAndroid.SHORT, ToastAndroid.CENTER);
             }
             else {
                 services.uploadFile(response, function(res, err){
@@ -40,7 +38,12 @@ class HomeScreen extends Component {
                         ToastAndroid.show(String(err), ToastAndroid.LONG);
                     }
                     else if (res) {
-                        ToastAndroid.showWithGravity(String(res.message), ToastAndroid.SHORT, ToastAndroid.CENTER);
+                        if (res.success) {
+                            ToastAndroid.showWithGravity(String(res.message), ToastAndroid.SHORT, ToastAndroid.CENTER);
+                        }
+                        else {
+                            ToastAndroid.show(String(res.message), ToastAndroid.LONG);
+                        }
                     }
                 });
             }
