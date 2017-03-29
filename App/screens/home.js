@@ -14,39 +14,37 @@ import {
 var styles = require('../styles/home');
 var services = require('../utils/services');
 
-//var FilePickerManager = require('NativeModules').FilePickerManager;
+var FilePickerManager = require('NativeModules').FilePickerManager;
 
 class HomeScreen extends Component {
     constructor(props) {
         super(props);
-        this.state = {text: ''};
+        this.state = {file: ''};
     }
 
     _onPressButton() {
         console.log('in Button Pressed');
-        //services.uploadFile(function(res, err){
-        //    if (err) {
-        //        ToastAndroid.show(String(err), ToastAndroid.LONG);
-        //    }
-        //    else if (res) {
-        //        ToastAndroid.showWithGravity(String(res.message), ToastAndroid.SHORT, ToastAndroid.CENTER);
-        //    }
-        //});
-        //FilePickerManager.showFilePicker((response) => {
-        //    console.log('Response', response);
-        //
-        //    if (response.didCancel) {
-        //        console.log('User cancelled file picker');
-        //    }
-        //    else if (response.error) {
-        //        console.log('FilePickerManager Error: ', response.error);
-        //    }
-        //    else {
-        //        this.setState({
-        //            file: response
-        //        });
-        //    }
-        //});
+        var options = {};
+        FilePickerManager.showFilePicker(options,(response) => {
+            console.log('Response', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled file picker');
+            }
+            else if (response.error) {
+                console.log('FilePickerManager Error: ', response.error);
+            }
+            else {
+                services.uploadFile(response, function(res, err){
+                    if (err) {
+                        ToastAndroid.show(String(err), ToastAndroid.LONG);
+                    }
+                    else if (res) {
+                        ToastAndroid.showWithGravity(String(res.message), ToastAndroid.SHORT, ToastAndroid.CENTER);
+                    }
+                });
+            }
+        });
     }
 
     render() {

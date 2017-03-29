@@ -4,8 +4,9 @@
 
 var baseUrl = 'http://22fd9044.ngrok.io/api';
 
-exports.uploadFile = async function (cb) {
+exports.uploadFile = async function (file, cb) {
     try {
+        console.log(file);
         var fetchingUrl = baseUrl+'/';
         let response = await fetch(fetchingUrl, {
             method: 'GET',

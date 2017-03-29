@@ -3,7 +3,6 @@
 React Native App
 
 
-
 ## Under Development
 
 
