@@ -14,7 +14,7 @@ import {
 var styles = require('../styles/home');
 var services = require('../utils/services');
 
-//const DocumentPicker = require('react-native').NativeModules.RNDocumentPicker;
+var DocumentPicker = require('react-native').NativeModules.RNDocumentPicker;
 
 class HomeScreen extends Component {
     constructor(props) {
@@ -24,14 +24,16 @@ class HomeScreen extends Component {
 
     _onPressButton() {
         console.log('Button Pressed');
+
         AlertIOS.alert(
             'Button Clicked'
         );
-        //DocumentPicker.show({
-        //    filetype: ['public.image'],
-        //},(error,url) => {
-        //    alert(url);
-        //});
+
+        DocumentPicker.show({
+            filetype: ['public.image']
+        },(error,url) => {
+            alert(url);
+        });
     }
 
     render() {
